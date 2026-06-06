@@ -1,0 +1,10 @@
+{
+  "module": "Template Screen Training Configuration",
+  "target_resolution": "1920x1080",
+  "ocr_fallback_enabled": true,
+  "ui_anchors": {
+    "add_credits_button": { "x_offset": 452, "y_offset": 120, "click_type": "single" },
+    "redeem_points_button": { "x_offset": 890, "y_offset": 122, "click_type": "double" },
+    "player_search_bar": { "x_offset": 1200, "y_offset": 45, "click_type": "focus_input" }
+  }
+}
