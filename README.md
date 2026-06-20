@@ -1,31 +1,40 @@
 # Automation Engines
 
-Reusable deterministic engines for AnarchI Technologies workflows.
+Reusable deterministic event engines for AnarchI Technologies workflows.
 
 Hardcoding freedom into the systems of tomorrow.
 
 ## Purpose
 
-Automation Engines collects the low-level machinery that turns events into actions. The design target is controlled execution: predictable inputs, explicit routing, and reviewable outputs.
+Automation Engines turns structured triggers into controlled routes: execute, hold, review, or reject. It is designed for dry-run-first automation where write-capable work must pass explicit clearance and operator review.
 
-## Current Components
+## What Changed
+
+- Removed gaming/payment-specific prototype language from the public repo.
+- Rebuilt the event bridge as a small deterministic Python package.
+- Moved UI coordinate data into a generic example config.
+- Added tests for read-safe execution, write holds, write review, and invalid tiers.
+
+## Structure
 
 ```text
-Automation Engines/
-├── event_bridge_core.py
-└── ui_coordinates_map.json
+.
+|-- automation_engines/
+|   |-- __init__.py
+|   `-- event_bridge.py
+|-- config/
+|   `-- ui_coordinates_map.example.json
+|-- tests/
+|   `-- test_event_bridge.py
+`-- README.md
 ```
 
-## Scope
+## Verify
 
-- Event bridges and routing logic.
-- Operator interface coordinate maps.
-- Deterministic action sequencing.
-- Guarded handoff points for external systems.
+```bash
+python -m unittest discover -s tests -q
+```
 
-## Production Notes
+## Public Safety
 
-- Validate event schemas before execution.
-- Keep UI automation maps documented and versioned.
-- Add dry-run modes before write-capable actions.
-- Never commit secrets, browser profiles, or live account state.
+This repo should not contain live UI coordinates for private accounts, browser/session state, credentials, payment records, or irreversible write automation without dry-run and review gates.
